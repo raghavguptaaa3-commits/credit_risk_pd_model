@@ -66,8 +66,8 @@ Development starts in 2013 because `mort_acc` was not recorded before 2012 (a st
 
 Final scorecard: 10 features (sub-grade, FICO, recent enquiries, DTI, payment-to-income, verification status, purpose, home ownership, income, credit history length). Gini 0.420 train / 0.419 in-time test.
 
-![Information Value](images/02_information_value.png)
-![Scorecard score distribution](images/03_scorecard_score_distribution.png)
+![Information Value](02_information_value.png)
+![Scorecard score distribution](03_scorecard_score_distribution.png)
 
 ## 6. Challengers: machine-learning models
 
@@ -77,18 +77,18 @@ Decision Tree, Random Forest, XGBoost and LightGBM, trained on all 28 raw featur
 
 **Calibration:** perfect in-time (3.70% predicted vs 3.71% actual), but every model is too optimistic out-of-time.
 
-![Calibration](images/04_calibration_out_of_time.png)
+![Calibration](04_calibration_out_of_time.png)
 
 **Stability:** score PSI < 0.03 for all models. The applicant population looked the same (even slightly safer), yet defaults rose from 3.7% to 4.6%. The deterioration was not visible in application data, which is why **PSI monitoring must be paired with back-testing**.
 
 **Explainability (SHAP):** XGBoost relies on the same main drivers as the scorecard (sub-grade, DTI, home ownership). Part of its extra power comes from features with low IV on their own (e.g. revolving utilisation) that matter in combination, which are interactions a linear scorecard cannot capture. SHAP also gives borrower-level reason codes.
 
-![SHAP importance](images/05_shap_importance.png)
-![SHAP for one borrower](images/06_shap_one_borrower.png)
+![SHAP importance](05_shap_importance.png)
+![SHAP for one borrower](06_shap_one_borrower.png)
 
 **Business impact:** approving the 80% of applicants with the lowest PD, every model cuts approved defaulters by about a third compared with random approval. XGBoost approves the fewest.
 
-![Approval strategy](images/07_approval_strategy.png)
+![Approval strategy](07_approval_strategy.png)
 
 ## 8. Conclusion and recommendation
 
